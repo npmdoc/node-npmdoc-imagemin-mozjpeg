@@ -1,0 +1,232 @@
+<html><head></head><body><div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a href="https://github.com/imagemin/imagemin-mozjpeg#readme">imagemin-mozjpeg (v6.0.0)</a>
+</h1>
+<h4>mozjpeg imagemin plugin</h4>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.imagemin-mozjpeg">module imagemin-mozjpeg</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.imagemin-mozjpeg.imagemin-mozjpeg">
+            function <span class="apidocSignatureSpan"></span>imagemin-mozjpeg
+            <span class="apidocSignatureSpan">({}, opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.imagemin-mozjpeg.toString">
+            function <span class="apidocSignatureSpan">imagemin-mozjpeg.</span>toString
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.imagemin-mozjpeg.toString">module imagemin-mozjpeg.toString</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.imagemin-mozjpeg.toString.toString">
+            function <span class="apidocSignatureSpan">imagemin-mozjpeg.</span>toString
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.imagemin-mozjpeg" id="apidoc.module.imagemin-mozjpeg">module imagemin-mozjpeg</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.imagemin-mozjpeg.imagemin-mozjpeg" id="apidoc.element.imagemin-mozjpeg.imagemin-mozjpeg">
+        function <span class="apidocSignatureSpan"></span>imagemin-mozjpeg
+        <span class="apidocSignatureSpan">({}, opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">opts =&gt; buf =&gt; {
+	opts = Object.assign({}, opts);
+
+	if (!Buffer.isBuffer(buf)) {
+		return Promise.reject(new TypeError('Expected a buffer'));
+	}
+
+	if (!isJpg(buf)) {
+		return Promise.resolve(buf);
+	}
+
+	const args = ['-outfile', execBuffer.output];
+
+	if (typeof opts.quality !== 'undefined') {
+		args.push('-quality', opts.quality);
+	}
+
+	if (opts.progressive === false) {
+		args.push('-baseline');
+	}
+
+	if (opts.targa) {
+		args.push('-targa');
+	}
+
+	if (opts.revert) {
+		args.push('-revert');
+	}
+
+	if (opts.fastcrush) {
+		args.push('-fastcrush');
+	}
+
+	if (typeof opts.dcScanOpt !== 'undefined') {
+		args.push('-dc-scan-opt', opts.dcScanOpt);
+	}
+
+	if (opts.notrellis) {
+		args.push('-notrellis');
+	}
+
+	if (opts.notrellisDC) {
+		args.push('-notrellis-dc');
+	}
+
+	if (opts.tune) {
+		args.push(`-tune-${opts.tune}`);
+	}
+
+	if (opts.noovershoot) {
+		args.push('-noovershoot');
+	}
+
+	if (opts.arithmetic) {
+		args.push('-arithmetic');
+	}
+
+	if (opts.dct) {
+		args.push('-dct', opts.dct);
+	}
+
+	if (typeof opts.quantTable !== 'undefined') {
+		args.push('-quant-table', opts.quantTable);
+	}
+
+	if (opts.smooth) {
+		args.push('-smooth', opts.smooth);
+	}
+
+	if (opts.maxmemory) {
+		args.push('-maxmemory', opts.maxmemory);
+	}
+
+	args.push(execBuffer.input);
+
+	return execBuffer({
+		input: buf,
+		bin: mozjpeg,
+		args
+	}).catch(err =&gt; {
+		err.message = err.stderr || err.message;
+		throw err;
+	});
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.imagemin-mozjpeg.toString" id="apidoc.element.imagemin-mozjpeg.toString">
+        function <span class="apidocSignatureSpan">imagemin-mozjpeg.</span>toString
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">toString = function () {
+    return text;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.imagemin-mozjpeg.toString" id="apidoc.module.imagemin-mozjpeg.toString">module imagemin-mozjpeg.toString</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.imagemin-mozjpeg.toString.toString" id="apidoc.element.imagemin-mozjpeg.toString.toString">
+        function <span class="apidocSignatureSpan">imagemin-mozjpeg.</span>toString
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function toString() { [native code] }</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
+</body></html>
