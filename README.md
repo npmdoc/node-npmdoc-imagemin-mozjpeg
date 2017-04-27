@@ -1,6 +1,6 @@
 # npmdoc-imagemin-mozjpeg
 
-#### api documentation for  [imagemin-mozjpeg (v6.0.0)](https://github.com/imagemin/imagemin-mozjpeg#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-imagemin-mozjpeg.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-imagemin-mozjpeg) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-imagemin-mozjpeg.svg)](https://travis-ci.org/npmdoc/node-npmdoc-imagemin-mozjpeg)
+#### basic api documentation for  [imagemin-mozjpeg (v6.0.0)](https://github.com/imagemin/imagemin-mozjpeg#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-imagemin-mozjpeg.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-imagemin-mozjpeg) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-imagemin-mozjpeg.svg)](https://travis-ci.org/npmdoc/node-npmdoc-imagemin-mozjpeg)
 
 #### mozjpeg imagemin plugin
 
@@ -88,7 +88,8 @@
     "version": "6.0.0",
     "xo": {
         "esnext": true
-    }
+    },
+    "bin": {}
 }
 ```
 
